@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lost and Found</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <h1>Welcome to the Lost and Found Bureau</h1>
+   
+    <p th:text="${item.itemName}"></p>
+    <p th:text="${item.description}"></p>   
+</body>
+</html>
