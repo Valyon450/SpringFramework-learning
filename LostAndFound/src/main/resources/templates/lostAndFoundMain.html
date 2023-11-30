@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lost and Found</title>
+    <link rel="stylesheet" type="text/css" href="/css/lostAndFoundMainStyles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ласково просимо до Бюро Знахідок!</h1>
+        <button class="btn btn-add" onclick="window.location.href='/addItem'">Додати знахідку</button>
+        <button class="btn btn-remove" onclick="window.location.href='/removeItem'">Видалити знахідку</button>
+        <h2>Список знахідок:</h2>
+        <div class="item-list">
+            <div th:each="item : ${items}" class="item">
+                <p>ID: <span th:text="${item.GetID()}"></span></p>
+                <p>Назва: <span th:text="${item.GetItemName()}"></span></p>
+                <p>Опис: <span th:text="${item.GetDescription()}"></span></p>
+                <p>Ключові слова: <span th:each="word, iterStat : ${item.GetKeywords()}">
+                    <span th:text="${word}"></span>
+                    <span th:if="${!iterStat.last}">, </span>
+                </span></p>
+                <p class="contact-info-title">Контактна інформація</p>
+                <p>Прізвище: <span th:text="${item.GetSurName()}"></span></p>
+                <p>Ім'я: <span th:text="${item.GetName()}"></span></p>
+                <p>По батькові: <span th:text="${item.GetPatronymic()}"></span></p>
+                <p>email: <span th:text="${item.GetEmail()}"></span></p>
+                <p>Телефон: <span th:text="${item.GetPhone()}"></span></p>
+            </div> 
+        </div>        
+    </div>      
+</body>
+</html>

@@ -1,13 +1,17 @@
-package com.example.lost_and_found;
+package com.example.lost_and_found.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.lost_and_found.Entities.Item;
+
+import com.example.lost_and_found.models.Item;
+import com.example.lost_and_found.repo.LostAndFoundRepositoryFake;
 
 @Service
 public class LostAndFoundService {
+    @Autowired
     private final LostAndFoundRepositoryFake lostAndFoundRepositoryFake;
 
     public LostAndFoundService(LostAndFoundRepositoryFake lostAndFoundRepositoryFake) {
@@ -16,6 +20,7 @@ public class LostAndFoundService {
 
     // Метод для отримання всіх знахідок
     public List<Item> getAllItems() {
+        
         return lostAndFoundRepositoryFake.getAllItems();
     }
 
@@ -30,7 +35,7 @@ public class LostAndFoundService {
     }
 
     // Метод для видалення знахідки
-    public void removeItem(Item item) {
-        lostAndFoundRepositoryFake.removeItem(item);
+    public void removeItem(Long id) {
+        lostAndFoundRepositoryFake.removeItem(id);
     }
 }

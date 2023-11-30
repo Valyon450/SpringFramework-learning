@@ -1,4 +1,4 @@
-package com.example.lost_and_found.Entities;
+package com.example.lost_and_found.models;
 
 // Контактна інформація
 public class ContactInfo {

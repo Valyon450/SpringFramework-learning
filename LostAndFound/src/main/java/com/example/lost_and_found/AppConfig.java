@@ -4,6 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import com.example.lost_and_found.repo.LostAndFoundRepositoryFake;
+import com.example.lost_and_found.services.LostAndFoundService;
+
 // Конфігурація бінів Spring
 @Configuration
 public class AppConfig {

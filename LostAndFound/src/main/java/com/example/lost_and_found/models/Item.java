@@ -1,4 +1,4 @@
-package com.example.lost_and_found.Entities;
+package com.example.lost_and_found.models;
 
 import java.util.List;
 
@@ -63,9 +63,9 @@ public class Item {
         return _keywords;
     }
 
-    public void AddKeyword(Keyword keyword)
+    public void AddKeyword(String keyword)
     {
-        _keywords.add(keyword.GetKeyword());
+        _keywords.add(keyword);
     }
 
     // get, set Контакти

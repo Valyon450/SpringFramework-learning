@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item</title>
+    <link rel="stylesheet" type="text/css" href="/css/addItemStyles.css">
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <h1>Додавання Знахідки</h1>
+        <form action="/addItem" method="post">
+            <input type="text" name="nameItem" placeholder="Введіть назву знахідки" class="form-control"><br>
+            <input type="text" name="description" placeholder="Введіть опис" class="form-control"><br>
+            <input type="text" name="keywords" placeholder="Введіть ключові слова" class="form-control"><br>
+            <h2>Контактна інформація</h2>
+            <input type="text" name="surName" placeholder="Прізвище" class="form-control"><br>
+            <input type="text" name="name" placeholder="Ім'я" class="form-control"><br>
+            <input type="text" name="patronymic" placeholder="По батькові" class="form-control"><br>
+            <input type="text" name="email" placeholder="email" class="form-control"><br>
+            <input type="text" name="phone" placeholder="Телефон" class="form-control"><br>
+            <button type="submit" class="btn btn-success">Додати знахідку</button>
+        </form>
+    </div>
+</body>
+</html>
