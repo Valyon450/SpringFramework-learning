@@ -20,7 +20,7 @@ public class LostAndFoundRepositoryFake {
 
         ContactInfo contactInfo = new ContactInfo("Іванов", "Сергій", "Володимирович", "sergiv@gmail.com", "+380673842913");
 
-        Description description = new Description("Знайдено ключі у парку біля альтанки");
+        Description description = new Description("Знайдено ключі в парку біля альтанки");
 
         Keyword keyword1 = new Keyword("ключі");
         Keyword keyword2 = new Keyword("парк");
@@ -42,6 +42,7 @@ public class LostAndFoundRepositoryFake {
             if (item.GetID() == id)
             return item;
         }
+        
         return new Item();
     }
 

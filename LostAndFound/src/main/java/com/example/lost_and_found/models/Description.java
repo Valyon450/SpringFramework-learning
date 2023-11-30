@@ -14,7 +14,7 @@ public class Description {
         _detailsText = detailsText;
     }
 
-    // get, set Телефон
+    // get, set Опис
     public String GetDescription()
     {
         return _detailsText;

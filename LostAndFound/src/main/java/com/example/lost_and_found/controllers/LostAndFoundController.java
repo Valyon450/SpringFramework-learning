@@ -19,10 +19,14 @@ public class LostAndFoundController {
     public String index(Model model) {
         Item item = lostAndFoundService.getItemByID((long)1);
 
-        model.addAttribute("item.itemName", item.GetItemName());
-
-        model.addAttribute("item.description", item.GetDescription());
-
+        if (item != null) {
+            model.addAttribute("item.itemName", item.GetItemName());
+            model.addAttribute("item.description", item.GetDescription());
+        } else {
+            // Обробка винятку, перенаправлення на сторінку з помилкою.
+            return "error";
+        }
+    
         return "index";
     }   
 
