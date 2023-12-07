@@ -9,14 +9,26 @@ body {
     color: #fff; /* колір тексту */
 }
 
-.container {
+.container {    
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     background-color: #222;
     background-size: cover;
-    background-position: center;
     color: #fff;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;    
+    gap: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 5px;
 }
 
 .btn {
@@ -75,4 +87,15 @@ body {
 .btn-remove:hover {
     background-color: #c82333;
     border-color: #c82333;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-success:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
 }

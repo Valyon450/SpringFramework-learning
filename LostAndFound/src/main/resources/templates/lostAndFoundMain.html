@@ -7,14 +7,23 @@
 </head>
 <body>
     <div class="container">
-        <h1>Ласково просимо до Бюро Знахідок!</h1>
+
+        <h1>Ласково просимо в Бюро Знахідок!</h1>
+
+        <div class="container mt-5 mb-5">
+            <form method="get" th:action="@{/searchItem}">
+                <label for="keyword">Знайти:</label>
+                <input type="text" id="keyword" placeholder="Введіть ключове слово" name="keyword" class="form-control"><br>
+                <button type="submit" class="btn btn-success">Пошук</button>
+            </form>
+        </div>
+
         <button class="btn btn-add" onclick="window.location.href='/addItem'">Додати знахідку</button>
         <button class="btn btn-remove" onclick="window.location.href='/removeItem'">Видалити знахідку</button>
         <h2>Список знахідок:</h2>
         <div class="item-list">
             <div th:each="item : ${items}" class="item">
-                <p>ID: <span th:text="${item.GetID()}"></span></p>
-                <p>Назва: <span th:text="${item.GetItemName()}"></span></p>
+                <p>Назва: <a th:href="@{/itemPage/{code}(code=${item.GetID()})}"><span th:text="${item.GetItemName()}"></span></a></p>
                 <p>Опис: <span th:text="${item.GetDescription()}"></span></p>
                 <p>Ключові слова: <span th:each="word, iterStat : ${item.GetKeywords()}">
                     <span th:text="${word}"></span>

@@ -6,22 +6,26 @@
     <link rel="stylesheet" type="text/css" href="/css/removeItemStyles.css">
 </head>
 <body>
-    <h1>Видалення Знахідки</h1>
-    <form action="/removeItem" method="post">
-        <label for="searchById">Пошук за ID:</label>
-        <input type="text" id="searchById" name="searchById">
-        <button type="submit" class="btn btn-success">Пошук за ID</button>
-    </form>
-    <div class="item-list">
-        <div th:each="item : ${items}" class="item">
-            <p>ID: <span th:text="${item.GetID()}"></span></p>
-            <p>Назва: <span th:text="${item.GetItemName()}"></span></p>
-            <p>Опис: <span th:text="${item.GetDescription()}"></span></p>
-            <form action="/removeItem" method="post">
-                <input type="hidden" name="itemId" th:value="${item.GetID()}"/>
-                <button type="submit" class="btn btn-remove">Видалити</button>
-            </form>
+    <div class="container mt-5 mb-5">
+        <h1>Видалення знахідки</h1>
+        
+        <form action="/removeItemId" method="post">
+            <label for="searchById">Знайти:</label>
+            <input type="text" id="searchById" placeholder="Введіть ID" name="searchById" pattern="^[1-9][0-9]*$" title="Please enter a non-negative number." required >
+            <button type="submit" class="btn btn-success">Пошук</button>
+        </form>
+
+        <div class="item-list">
+            <div th:each="item : ${items}" class="item">
+                <p>ID: <span th:text="${item.GetID()}"></span></p>
+                <p>Назва: <span th:text="${item.GetItemName()}"></span></p>
+                <p>Опис: <span th:text="${item.GetDescription()}"></span></p>
+                <form action="/removeItem" method="post">
+                    <input type="hidden" name="itemId" th:value="${item.GetID()}"/>
+                    <button type="submit" class="btn btn-remove">Видалити</button>
+                </form>
+            </div> 
         </div> 
-    </div>    
+    </div>   
 </body>
 </html>

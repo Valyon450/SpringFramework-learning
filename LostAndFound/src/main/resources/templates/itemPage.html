@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/itemPageStyles.css">
+</head>
+<body>
+    <h1>Знахідка</h1>
+    <div class="item" id="itemInfo">
+        <p>ID: <span th:text="${item.GetID()}"></span></p>
+                <p>Назва: <span th:text="${item.GetItemName()}"></span></p>
+                <p>Опис: <span th:text="${item.GetDescription()}"></span></p>
+                <p>Ключові слова: <span th:each="word, iterStat : ${item.GetKeywords()}">
+                    <span th:text="${word}"></span>
+                    <span th:if="${!iterStat.last}">, </span>
+                </span></p>
+
+                <p class="contact-info-title">Контактна інформація</p>
+                <p>Прізвище: <span th:text="${item.GetSurName()}"></span></p>
+                <p>Ім'я: <span th:text="${item.GetName()}"></span></p>
+                <p>По батькові: <span th:text="${item.GetPatronymic()}"></span></p>
+                <p>email: <span th:text="${item.GetEmail()}"></span></p>
+                <p>Телефон: <span th:text="${item.GetPhone()}"></span></p>
+    </div>
+    <button type="submit" class="btn btn-home" onclick="window.location.href='/'">На головну</button>    
+</body>
+</html>

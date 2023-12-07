@@ -17,6 +17,15 @@ public class LostAndFoundRepositoryFake {
         initializeData();
     }
 
+    public List<Item> getItemsByKeyWords(String keywords){
+        List<Item> findings = new ArrayList<>();
+        for(Item item : _items){
+            if(item.GetKeywords().contains(keywords)){
+                findings.add(item);
+            }
+        }
+        return findings;
+    } 
     public List<Item> getAllItems() {       
 
         return _items;        
@@ -27,7 +36,6 @@ public class LostAndFoundRepositoryFake {
             if (item.GetID() == id)
             return item;
         }
-        
         return new Item();
     }
 
@@ -40,6 +48,7 @@ public class LostAndFoundRepositoryFake {
     }
 
     private void initializeData() {
+        // Створюємо та додаємо першу знахідку
         ContactInfo contactInfo = new ContactInfo("Іванов", "Сергій", "Володимирович", "sergiv@gmail.com", "+380673842913");
 
         Description description = new Description("Знайдено ключі в парку біля альтанки");
@@ -48,7 +57,39 @@ public class LostAndFoundRepositoryFake {
         keywords.add("ключі");
         keywords.add("парк");
 
-        Item item = new Item((long) 1, "Ключі", description, keywords, contactInfo);
+        Long id = (long) (_items.size() + 1);
+
+        Item item = new Item(id, "Ключі", description, keywords, contactInfo);
+
+        _items.add(item);
+
+        // Створюємо та додаємо другу знахідку
+        contactInfo = new ContactInfo("Григоренко", "Антон", "Юрійович", "grygant@gmail.com", "+380973429516");
+
+        description = new Description("Біля ТЦ \"Оазис\" знайдено шкіряний гаманець");
+        
+        keywords = new ArrayList<>();
+        keywords.add("гаманець");
+        keywords.add("оазис");
+
+        id = (long) (_items.size() + 1);
+
+        item = new Item(id, "Гаманець", description, keywords, contactInfo);
+
+        _items.add(item);
+
+        // Створюємо та додаємо третю знахідку
+        contactInfo = new ContactInfo("Карпенко", "Юлія", "Миколаївна", "karpjul@gmail.com", "+380684387249");
+
+        description = new Description("Знайдено телефон біля дитячого майданчика");
+        
+        keywords = new ArrayList<>();
+        keywords.add("майданчик");
+        keywords.add("телефон");
+
+        id = (long) (_items.size() + 1);
+
+        item = new Item(id, "Телефон", description, keywords, contactInfo);
 
         _items.add(item);
     }

@@ -18,6 +18,11 @@ public class LostAndFoundService {
         this.lostAndFoundRepositoryFake = lostAndFoundRepositoryFake;
     }
 
+    // Метод для отримання знахідки за ключовим словом
+    public List<Item> getItemByKeyWord(String keyword){
+        return lostAndFoundRepositoryFake.getItemsByKeyWords(keyword);
+    }
+
     // Метод для отримання всіх знахідок
     public List<Item> getAllItems() {
         

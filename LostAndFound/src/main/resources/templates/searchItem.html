@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Item</title>
+    <link rel="stylesheet" type="text/css" href="/css/searchItemStyles.css">
+</head>
+<body>
+    <div class="item-list">
+
+        <div th:switch="${#lists.isEmpty(items)}">
+            <div th:case="false">
+                <h1>Знайдені знахідки за запитом </h1>
+                <div th:each="item : ${items}" class="item">
+                    <p>Назва: <a th:href="@{/itemPage/{code}(code=${item.GetID()})}">
+                        <span th:text="${item.GetItemName()}"></span></a></p>
+                    <p>Опис: <span th:text="${item.GetDescription()}"></span></p>
+                </div>
+            </div>
+            <div th:case="true">
+                <h1>Не знайдено</h1>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-home" onclick="window.location.href='/'">На головну</button>
+    </div> 
+</body>
+</html>
